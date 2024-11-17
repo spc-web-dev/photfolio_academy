@@ -8,4 +8,5 @@ In this project i using
 [Shadcn/ui]
 [Redux Toolkit]
 [React Icons]
+[Framer Motion (motion.dev)]
 and more.
