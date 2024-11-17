@@ -1,9 +1,13 @@
+import { ScrollArea } from "@/components/ui/scroll-area"
 
 
-function page() {
+
+function Page() {
   return (
-    <div>page</div>
+    <ScrollArea className="w-full max-h-[calc(100vh_-_100px)] h-[calc(100vh_-_100px)]">
+      docs page
+    </ScrollArea>
   )
 }
 
-export default page
+export default Page
