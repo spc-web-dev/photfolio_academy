@@ -28,7 +28,7 @@ function NavbarLeft() {
               href={nav.link}
               className={`capitalize text-[14px]  hover:text-slate-900 dark:hover:text-slate-300 ${
                 pathname === nav.link
-                  ? "text-slate-900 dark:text-white"
+                  ? "text-blue-500 dark:text-blue-500"
                   : "text-slate-500 dark:text-slate-400"
               }`}
             >

@@ -1,5 +1,5 @@
+import DocsPage from "@/components/documents/docs-page";
 import SectionContainer from "@/components/documents/section-container";
-
 
 type Props = {
   params: Promise<{
@@ -9,9 +9,16 @@ type Props = {
 
 async function Page({ params }: Props) {
   const { slug } = await params;
-  if (slug[1] === "web_dev") {
+  if (!slug)
+    return (
+      <>
+        <DocsPage />
+      </>
+    );
+  if (slug && slug[0] === "programming") {
     return <div>web developer here.</div>;
-  } else {
+  }
+  if (slug && slug[0] === "networking") {
     return (
       <>
         <SectionContainer id={slug[1]} />

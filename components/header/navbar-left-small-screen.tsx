@@ -35,13 +35,13 @@ function NavbarLeftSmallScreen() {
           <div className="space-y-4">
           <div className="flex flex-col gap-4">
               <SheetDescription>General</SheetDescription>
-              <Link className={`${pathname === '/' ? 'underline': 'no-underline'}`} href={'/'}>
-                  <Label className=" cursor-pointer capitalize hover:underline">
+              <Link className={`${pathname === '/' ? ' text-blue-500': ''}`} href={'/'}>
+                  <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
                     Homepage
                   </Label>
                 </Link>
-                <Link className={`${pathname === '/docs' ? 'underline': 'no-underline'}`} href={'/docs'}>
-                  <Label className=" cursor-pointer capitalize hover:underline">
+                <Link className={`${pathname === '/docs' ? ' text-blue-500': ''}`} href={'/docs'}>
+                  <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
                     Documents
                   </Label>
                 </Link>
@@ -49,8 +49,8 @@ function NavbarLeftSmallScreen() {
             <div className="flex flex-col gap-4">
               <SheetDescription>Programming</SheetDescription>
               {ProgrammingData.map((pro) => (
-                <Link className={`${pathname === pro.link ? 'underline': 'no-underline'}`} key={pro.id} href={pro.link}>
-                  <Label className=" cursor-pointer capitalize hover:underline">
+                <Link className={`${pathname === pro.link ? ' text-blue-500': ''}`} key={pro.id} href={pro.link}>
+                  <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
                     {pro.title}
                   </Label>
                 </Link>
@@ -59,8 +59,8 @@ function NavbarLeftSmallScreen() {
             <div className="flex flex-col gap-4">
               <SheetDescription className="">Networking</SheetDescription>
               {NetworkingData.map((net) => (
-                <Link className={`${pathname === net.link ? 'underline': 'no-underline'}`} key={net.id} href={net.link}>
-                  <Label className=" cursor-pointer capitalize hover:underline">
+                <Link className={`${pathname === net.link ? ' text-blue-500': ''}`} key={net.id} href={net.link}>
+                  <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
                     {net.title}
                   </Label>
                 </Link>

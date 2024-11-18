@@ -20,7 +20,7 @@ const DocsRightSidebar = ({ params }: Props) => {
   useEffect(() => {
     async function handle() {
       const { slug } = await params;
-      setVideos((prev) => VideosData.filter((vd) => vd.lesson_id === slug[1]));
+      slug && setVideos((prev) => VideosData.filter((vd) => vd.lesson_id === slug[1]));
     }
     handle();
   }, [params]);
@@ -37,8 +37,8 @@ const DocsRightSidebar = ({ params }: Props) => {
                 variant={"ghost"}
                 onClick={() => router.push("#" + id)}
                 className={`${
-                  in_view_id === id && "text-blue-500 hover:text-blue-500"
-                } capitalize text-sm font-sans justify-start text-left font-light whitespace-normal`}
+                  in_view_id === id ? "text-blue-500 hover:text-blue-500 font-normal": 'font-light'
+                } capitalize text-sm font-sans justify-start text-left whitespace-normal`}
               >
                 {vd.title}
               </Button>

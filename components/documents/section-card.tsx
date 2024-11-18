@@ -1,3 +1,4 @@
+import SectionCardFooter from "./section-card-footer";
 import VideoCard from "./video-card";
 
 type Props = {
@@ -14,6 +15,7 @@ const SectionCard = ({ title, url }: Props) => {
         modi dolore commodi quisquam. Ea!
       </p>
       <VideoCard url={url}/>
+      <SectionCardFooter />
     </section>
   );
 };

@@ -11,14 +11,13 @@ import { setInViewId } from "@/lib/redux/features/scroll-slice";
 const SectionContainer = ({ id }: { id: string }) => {
   const [videos, setVideos] = useState<(typeof VideosData)[number][]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const childRefs = useRef<(HTMLDivElement | null)[]>([]); // Refs for each child element
+  const childRefs = useRef<(HTMLDivElement | null)[]>([]);
   const dispatch = useAppDispatch();
 
   const handleRefChildren = (el: HTMLDivElement | null, index: number) => {
     if (el) childRefs.current[index] = el;
   };
 
-  // Fetch videos based on lesson_id
   useEffect(() => {
     const filteredVideos = VideosData.filter((vd) => vd.lesson_id === id);
     setVideos(filteredVideos);
@@ -63,10 +62,9 @@ const SectionContainer = ({ id }: { id: string }) => {
           <motion.div
             key={vd.id}
             id={idPath}
-            ref={(el) => handleRefChildren(el, index)} // Track each section with a ref
+            ref={(el) => handleRefChildren(el, index)}
             style={{
-              // Apply background color to the section when in view
-              backgroundColor: "transparent", // You can customize this further based on in_view_id from Redux store
+              backgroundColor: "transparent", 
               transition: "background-color 0.3s ease",
             }}
           >
