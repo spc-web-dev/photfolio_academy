@@ -132,3 +132,51 @@ export const VideosData = [
         url:'/videos/lesson.mp4',
     },
 ] as const;
+
+export const SkillsData = [
+    {
+      id: 1,
+      name: 'html',
+    },
+    {
+      id: 2,
+      name: 'css',
+    },
+    {
+      id: 3,
+      name: 'tailwindcss',
+    },
+    {
+      id: 4,
+      name: 'javascript',
+    },
+    {
+      id: 5,
+      name: 'react.js',
+    },
+    {
+      id: 6,
+      name: 'next.js',
+    },
+    {
+      id: 7,
+      name: 'node.js',
+    },
+    {
+      id: 8,
+      name: 'express.js',
+    },
+    {
+      id: 9,
+      name: 'mongodb',
+    },
+    {
+      id: 10,
+      name: 'mysql',
+    },
+    {
+      id: 11,
+      name: 'postgresql',
+    },
+  ] as const;
+  

@@ -16,6 +16,7 @@ const SectionContainer = ({ id }: { id: string }) => {
 
   const handleRefChildren = (el: HTMLDivElement | null, index: number) => {
     if (el) childRefs.current[index] = el;
+
   };
 
   useEffect(() => {

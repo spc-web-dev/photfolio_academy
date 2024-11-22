@@ -1,4 +1,5 @@
 import DocsPage from "@/components/documents/docs-page";
+import ProgrammingContainer from "@/components/documents/programming/programming-container";
 import SectionContainer from "@/components/documents/section-container";
 
 type Props = {
@@ -16,7 +17,11 @@ async function Page({ params }: Props) {
       </>
     );
   if (slug && slug[0] === "programming") {
-    return <div>web developer here.</div>;
+    return (
+      <>
+        <ProgrammingContainer />
+      </>
+    );
   }
   if (slug && slug[0] === "networking") {
     return (

@@ -35,7 +35,9 @@ const DocsRightSidebar = ({ params }: Props) => {
               <Button
                 key={vd.id}
                 variant={"ghost"}
-                onClick={() => router.push("#" + id)}
+                onClick={() => {
+                  router.push("#" + id)
+                }}
                 className={`${
                   in_view_id === id ? "text-blue-500 hover:text-blue-500 font-normal": 'font-light'
                 } capitalize text-sm font-sans justify-start text-left whitespace-normal`}
