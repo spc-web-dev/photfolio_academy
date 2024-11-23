@@ -137,46 +137,82 @@ export const SkillsData = [
     {
       id: 1,
       name: 'html',
+      link: 'https://www.w3schools.com/html/',
     },
     {
       id: 2,
       name: 'css',
+      link: 'https://www.w3schools.com/css/',
     },
     {
       id: 3,
       name: 'tailwindcss',
+      link: 'https://tailwindcss.com/',
     },
     {
       id: 4,
       name: 'javascript',
+      link: 'https://www.javascript.com/',
     },
     {
       id: 5,
       name: 'react.js',
+      link: 'https://legacy.reactjs.org/',
     },
     {
       id: 6,
       name: 'next.js',
+      link: 'https://nextjs.org/',
     },
     {
       id: 7,
       name: 'node.js',
+      link: 'https://nodejs.org/en',
     },
     {
       id: 8,
       name: 'express.js',
+      link: 'https://expressjs.com/',
     },
     {
       id: 9,
       name: 'mongodb',
+      link: 'https://www.mongodb.com/',
     },
     {
       id: 10,
       name: 'mysql',
+      link: 'https://www.mysql.com/',
     },
     {
       id: 11,
       name: 'postgresql',
+      link: 'https://www.postgresql.org/',
+    },
+    {
+      id: 12,
+      name: 'redux toolkit',
+      link: 'https://redux-toolkit.js.org/',
+    },
+    {
+      id: 13,
+      name: 'drizzle orm',
+      link: 'https://orm.drizzle.team/',
+    },
+    {
+      id: 14,
+      name: 'shadcn/ui',
+      link: 'https://ui.shadcn.com/',
+    },
+    {
+      id: 15,
+      name: 'firebase',
+      link: 'https://firebase.google.com/',
+    },
+    {
+      id: 16,
+      name: 'github',
+      link: 'https://github.com/',
     },
   ] as const;
   
