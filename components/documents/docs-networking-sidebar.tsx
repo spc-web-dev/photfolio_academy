@@ -16,7 +16,7 @@ function DocsNetworkingSidebar({ slug, videos }: Props) {
     <div className="flex flex-col gap-2">
         {(slug && slug[0] === 'networking' && videos) &&
           videos.map((vd) => {
-            let id = vd.title.replace(/ /g, "_").toLowerCase();
+            const id = vd.title.replace(/ /g, "_").toLowerCase();
             return (
               <Button
                 key={vd.id}

@@ -20,7 +20,7 @@ function DocsPage() {
         As a web developer, I have expertise in both frontend and backend technologies. My proficiency includes foundational web technologies like HTML and CSS, along with advanced styling using Tailwind CSS. I am skilled in JavaScript and modern frameworks like React.js and Next.js, which enable me to create dynamic, user-friendly web applications. On the backend, I specialize in Node.js and Express.js for server-side development, and I possess robust database management skills in MongoDB, MySQL, and PostgreSQL. My comprehensive skill set allows me to develop full-stack applications that combine seamless functionality with elegant design.
         </p>
         <p>
-        In addition to web development, I have strong expertise in networking and security systems. I am experienced in configuring and managing devices such as MikroTik routers, Huawei switches, TP-Link routers, and access points. I excel in designing and maintaining efficient, reliable, and secure network infrastructures. My knowledge also extends to CCTV systems, where I ensure seamless integration and optimal performance for video surveillance. Whether it's setting up advanced routing protocols, optimizing switch performance, or troubleshooting connectivity issues, I bring a combination of technical expertise and problem-solving skills to deliver effective solutions tailored to diverse environments.
+        In addition to web development, I have strong expertise in networking and security systems. I am experienced in configuring and managing devices such as MikroTik routers, Huawei switches, TP-Link routers, and access points. I excel in designing and maintaining efficient, reliable, and secure network infrastructures. My knowledge also extends to CCTV systems, where I ensure seamless integration and optimal performance for video surveillance. Whether it&apos;s setting up advanced routing protocols, optimizing switch performance, or troubleshooting connectivity issues, I bring a combination of technical expertise and problem-solving skills to deliver effective solutions tailored to diverse environments.
         </p>
       </section>
       <Separator className="my-10" />
@@ -63,7 +63,7 @@ function DocsPage() {
       <section className="space-y-4">
         <DocsSubTitle title="Join our" />
         <p className="text-sm">
-          If you have questions about anything, you're always welcome to ask our
+          If you have questions about anything, you&apos;re always welcome to ask our
           on{" "}
           <span className="text-blue-500 cursor-pointer hover:text-blue-400">
             Telegram

@@ -58,7 +58,7 @@ const SectionContainer = ({ id }: { id: string }) => {
   return (
     <div ref={containerRef}>
       {videos.map((vd, index) => {
-        let idPath = vd.title.replace(/ /g, "_").toLowerCase();
+        const idPath = vd.title.replace(/ /g, "_").toLowerCase();
         return (
           <motion.div
             key={vd.id}

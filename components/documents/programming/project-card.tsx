@@ -10,10 +10,11 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import { motion } from "motion/react";
+import { MutableRefObject } from "react";
 
 type Props = {
     index: number;
-    ref: any;
+    ref: MutableRefObject<(HTMLDivElement | null)[]>;
 }
 
 function ProjectCard({index, ref }: Props) {

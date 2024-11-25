@@ -19,7 +19,10 @@ const DocsRightSidebar = ({ params }: Props) => {
     async function handle() {
       const { slug } = await params;
       setSlug(slug)
-      slug && setVideos((prev) => VideosData.filter((vd) => vd.lesson_id === slug[1]));
+      if(slug) {
+        const vds = VideosData.filter((vd) => vd.lesson_id === slug[1])
+        setVideos(vds);
+      }
     }
     handle();
   }, [params]);
@@ -28,9 +31,9 @@ const DocsRightSidebar = ({ params }: Props) => {
     <ScrollArea className="max-w-96 w-96 h-[calc(100vh_-_100px)] lg:block hidden ">
       <div>
         <DocsNetworkingSidebar videos={videos} slug={slug}/>
-        {(slug && slug[0] === 'programming') && (
+        {(slug && slug[0] === 'programming') ? (
           <DocsProgrammingSidebar />
-        )}
+        ): null}
       </div>
     </ScrollArea>
   );
