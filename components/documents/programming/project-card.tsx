@@ -13,11 +13,14 @@ import { motion } from "motion/react";
 
 type Props = {
     index: number;
+    ref: any;
 }
 
-function ProjectCard({index}: Props) {
+function ProjectCard({index, ref }: Props) {
   return (
     <motion.div className="w-full h-full"
+    ref={el=>{ref.current[index] = el}}
+    id={'project'+index}
     initial={{
         y:200,
         opacity:0,
