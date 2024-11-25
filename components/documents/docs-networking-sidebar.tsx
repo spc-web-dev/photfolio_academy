@@ -14,7 +14,7 @@ function DocsNetworkingSidebar({ slug, videos }: Props) {
     const router = useRouter()
   return (
     <div className="flex flex-col gap-2">
-        {(slug[0] === 'networking' && videos) &&
+        {(slug && slug[0] === 'networking' && videos) &&
           videos.map((vd) => {
             let id = vd.title.replace(/ /g, "_").toLowerCase();
             return (
