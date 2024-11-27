@@ -6,7 +6,7 @@ import { drizzle } from 'drizzle-orm/vercel-postgres';
 const db = drizzle(sql, { schema })
 
 
-export const getUser = async (user: schema.TableUserType)=>{
+export const getUser = async ()=>{
     const users = await db.select().from(schema.usersTable)
     return users
 }
