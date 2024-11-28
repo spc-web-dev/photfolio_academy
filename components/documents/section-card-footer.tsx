@@ -3,6 +3,7 @@ import { IoIosHeartEmpty } from "react-icons/io";
 import { GoComment, GoHeartFill } from "react-icons/go";
 import { FaCommentAlt } from "react-icons/fa";
 import { useState } from "react";
+import CommentFormDialog from "./comment-form-dialog";
 
 const SectionCardFooter = () => {
   const [like, setLike] = useState(false);
@@ -10,6 +11,7 @@ const SectionCardFooter = () => {
 
   return (
     <ul className="my-5 px-4 font-light flex items-center gap-5 text-neutral-500">
+      <CommentFormDialog>
       <li
         className={`${
           comment && "text-blue-500"
@@ -21,6 +23,7 @@ const SectionCardFooter = () => {
         </span>
         <span className="group-hover:text-blue-500">100</span>
       </li>
+      </CommentFormDialog>
       <li
         className={`${
           like && "text-pink-500"
