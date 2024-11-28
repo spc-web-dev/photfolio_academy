@@ -49,7 +49,7 @@ function CommentFormDialog({ children }: { children: React.ReactNode }) {
           <div className="flex flex-col w-full gap-4">
             <DialogDescription>Commented</DialogDescription>
             <ul className="w-full flex flex-col gap-4 max-h-52 overflow-hidden overflow-y-auto">
-              {comments && comments.map((cmt, index) => (
+              {comments && comments.map((cmt) => (
                 <li className="text-sm flex items-center gap-4" key={cmt.id}>
                   <Avatar>
                     <AvatarImage src="https://github.com/shadcn.png" />
