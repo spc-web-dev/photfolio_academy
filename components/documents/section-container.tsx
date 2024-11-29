@@ -69,7 +69,7 @@ const SectionContainer = ({ id }: { id: string }) => {
               transition: "background-color 0.3s ease",
             }}
           >
-            <SectionCard title={vd.title} url={vd.url} />
+            <SectionCard title={vd.title} url={vd.url} id={vd.id.toString()}/>
             <Separator className="my-4" />
           </motion.div>
         );

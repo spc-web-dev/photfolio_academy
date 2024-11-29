@@ -42,6 +42,7 @@ function HomeAbout() {
             },
           }}
           viewport={{ once: true }}
+          className="dark:text-neutral-400"
         >
           I am a dedicated <span className="text-blue-500">Web Developer</span>{" "}
           and <span className="text-blue-500">Network Engineer</span> with
@@ -53,7 +54,7 @@ function HomeAbout() {
         <Accordion type="single" collapsible className="">
           <AccordionItem value="kh">
             <AccordionTrigger>Translate</AccordionTrigger>
-            <AccordionContent>
+            <AccordionContent className="dark:text-neutral-400">
               ខ្ញុំជាអ្នកអភិវឌ្ឍន៍គេហទំព័រ
               និងវិស្វករបណ្តាញដែលមានជំនាញក្នុងការបង្កើតកម្មវិធីគេហទំព័រដែលឆ្លើយតប
               និងការគ្រប់គ្រងបណ្តាញប្រកបដោយសុវត្ថិភាព និងមានប្រសិទ្ធភាពខ្ពស់។

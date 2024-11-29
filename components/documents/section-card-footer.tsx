@@ -5,13 +5,13 @@ import { FaCommentAlt } from "react-icons/fa";
 import { useState } from "react";
 import CommentFormDialog from "./comment-form-dialog";
 
-const SectionCardFooter = () => {
+const SectionCardFooter = ({ videoId }: { videoId: string; }) => {
   const [like, setLike] = useState(false);
   const [comment, setComment] = useState(false);
 
   return (
     <ul className="my-5 px-4 font-light flex items-center gap-5 text-neutral-500">
-      <CommentFormDialog>
+      <CommentFormDialog videoId={videoId}>
       <li
         className={`${
           comment && "text-blue-500"

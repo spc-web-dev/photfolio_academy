@@ -8,7 +8,7 @@ const HomeRightSide = () => {
       <div className="flex flex-col gap-4 justify-center items-center">
         <ProfileLogo src="/images/networking.png" alt="networking" />
         <h1>NETWORKING</h1>
-        <p className="text-center">
+        <p className="text-center dark:text-slate-400 text-sm">
           Click <span className="text-blue-500">Learn More</span> to explore more details about my networking skills
           and how you can learn them.
         </p>

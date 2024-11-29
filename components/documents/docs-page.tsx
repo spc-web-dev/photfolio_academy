@@ -9,19 +9,19 @@ import DocsSubTitle from "./docs-sub-title";
 
 function DocsPage() {
   return (
-    <div className="text-sm pb-10">
+    <div className="text-sm pb-10 ">
       <section className="space-y-4">
         <h1 className="text-2xl font-semibold">Introduction</h1>
-        <p className="text-sm">Welcome to my Photfolio!</p>
+        <p className="text-sm dark:text-slate-400">Welcome to my Photfolio!</p>
       </section>
       <Separator className="my-10" />
       <section className="space-y-4">
         <DocsSubTitle title="Who am i?" />
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">
           My name is <span className="text-blue-500">LA RESSANN</span>, I am a
           Web Developer and Junior Network Engineer.
         </p>
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">
           As a web developer, I have expertise in both frontend and backend
           technologies. My proficiency includes foundational web technologies
           like HTML and CSS, along with advanced styling using Tailwind CSS. I
@@ -33,10 +33,10 @@ function DocsPage() {
           allows me to develop full-stack applications that combine seamless
           functionality with elegant design.
         </p>
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion type="single" collapsible className="w-full ">
           <AccordionItem value="kh">
             <AccordionTrigger>Translate</AccordionTrigger>
-            <AccordionContent>
+            <AccordionContent className="dark:text-slate-400">
               ក្នុងនាមជាអ្នកបង្កើតគេហទំព័រ ខ្ញុំមានជំនាញទាំងផ្នែកខាងមុខ
               និងផ្នែកខាងក្រោយនៃបច្ចេកវិទ្យា។
               ជំនាញរបស់ខ្ញុំរួមបញ្ចូលបច្ចេកវិទ្យាគេហទំព័រជាមូលដ្ឋានដូចជា HTML
@@ -51,7 +51,7 @@ function DocsPage() {
             </AccordionContent>
           </AccordionItem>
         </Accordion>
-        <p>
+        <p className="dark:text-slate-400">
           In addition to web development, I have strong expertise in networking
           and security systems. I am experienced in configuring and managing
           devices such as MikroTik routers, Huawei switches, TP-Link routers,
@@ -67,7 +67,7 @@ function DocsPage() {
         <Accordion type="single" collapsible className="w-full">
           <AccordionItem value="kh">
             <AccordionTrigger>Translate</AccordionTrigger>
-            <AccordionContent>
+            <AccordionContent className="dark:text-slate-400">
               បន្ថែមពីលើការអភិវឌ្ឍន៍គេហទំព័រ
               ខ្ញុំមានជំនាញខ្លាំងក្នុងការភ្ជាប់បណ្តាញ និងប្រព័ន្ធសុវត្ថិភាព។
               ខ្ញុំមានបទពិសោធន៍ក្នុងការកំណត់រចនាសម្ព័ន្ធ និងការគ្រប់គ្រង
@@ -88,16 +88,16 @@ function DocsPage() {
       <div className="my-10" />
       <section className="space-y-4">
         <DocsSubTitle title="Main Features" />
-        <p className="text-sm">Some of the main features include.</p>
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">Some of the main features include.</p>
+        <p className="text-sm dark:text-slate-400">
           Explore all the programming projects I have completed, along with
           their source code, which is available in my GitHub repository
         </p>
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">
           Learn more about networking, including how to configure network
           devices such as MikroTik routers.
         </p>
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">
           Access educational videos included in this portfolio to enhance your
           knowledge and skills in networking and programming.
         </p>
@@ -105,16 +105,16 @@ function DocsPage() {
           <AccordionItem value="kh">
             <AccordionTrigger>Translate</AccordionTrigger>
             <AccordionContent className="space-y-4">
-              <p className="text-sm">
+              <p className="text-sm dark:text-slate-400">
                 រុករកគម្រោងសរសេរកម្មវិធីទាំងអស់ដែលខ្ញុំបានបញ្ចប់
                 រួមជាមួយនឹងកូដប្រភពរបស់វា ដែលមាននៅក្នុងឃ្លាំង GitHub របស់ខ្ញុំ
               </p>
-              <p className="text-sm">
+              <p className="text-sm dark:text-slate-400">
                 ស្វែងយល់បន្ថែមអំពីការភ្ជាប់បណ្តាញ
                 រួមទាំងរបៀបកំណត់រចនាសម្ព័ន្ធឧបករណ៍បណ្តាញ ដូចជារ៉ោតទ័រ MikroTik
                 ជាដើម។
               </p>
-              <p className="text-sm">
+              <p className="text-sm dark:text-slate-400">
                 ចូលប្រើវីដេអូអប់រំដែលរួមបញ្ចូលនៅក្នុងផលប័ត្រនេះ
                 ដើម្បីបង្កើនចំណេះដឹង និងជំនាញរបស់អ្នកក្នុងបណ្តាញ និងកម្មវិធី។
               </p>
@@ -125,14 +125,14 @@ function DocsPage() {
       <div className="my-10" />
       <section className="space-y-4">
         <DocsSubTitle title="How to pratice if we don't have the real device?" />
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">
           Mikrotik Router, check out the{" "}
           <span className="text-blue-500 cursor-pointer hover:text-blue-400">
             Installation
           </span>{" "}
           guide.
         </p>
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">
           Huawei Switch, check out the{" "}
           <span className="text-blue-500 cursor-pointer hover:text-blue-400">
             Installation
@@ -144,7 +144,7 @@ function DocsPage() {
 
       <section className="space-y-4">
         <DocsSubTitle title="Join our" />
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">
           If you have questions about anything, you&apos;re always welcome to
           ask our on{" "}
           <span className="text-blue-500 cursor-pointer hover:text-blue-400">
@@ -152,7 +152,7 @@ function DocsPage() {
           </span>
           .
         </p>
-        <p className="text-sm">
+        <p className="text-sm dark:text-slate-400">
           You can support our by:{" "}
           <span className="text-blue-500 cursor-pointer hover:text-blue-400">
             ABA,

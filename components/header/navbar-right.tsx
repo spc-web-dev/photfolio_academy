@@ -4,12 +4,14 @@ import Link from "next/link";
 import { FaTelegram } from "react-icons/fa";
 import ThemeButton from "./theme-button";
 import SearchButton from "./search-button";
+import UserButtonForm from "./user-button";
 
 function NavbarRight() {
   return (
     <div>
       <div className="flex items-center gap-1 flex-nowrap">
         <SearchButton />
+        <UserButtonForm />
         <Button
           asChild
           variant={"outline"}
@@ -30,6 +32,7 @@ function NavbarRight() {
             <FaTelegram />
           </Link>
         </Button>
+        
         <ThemeButton />
       </div>
     </div>
