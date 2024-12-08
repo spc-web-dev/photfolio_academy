@@ -2,7 +2,6 @@
 
 import { useState, useEffect, useRef } from "react";
 import { VideosData } from "@/lib/data";
-import { motion } from "framer-motion";
 import SectionCard from "./section-card";
 import { Separator } from "../ui/separator";
 import { useAppDispatch } from "@/lib/redux/hooks";
