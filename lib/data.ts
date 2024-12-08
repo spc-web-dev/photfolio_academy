@@ -25,7 +25,7 @@ export const ProgrammingData = [
         title: 'web development',
         link: '/docs/programming/web_dev',
         icon: React.createElement(CgWebsite),
-    }
+    },
 ] as const;
 
 export const NetworkingData = [
@@ -214,5 +214,5 @@ export const SkillsData = [
       name: 'github',
       link: 'https://github.com/',
     },
-  ] as const;
+] as const;
   
