@@ -1,5 +1,3 @@
 {
-    "version": 2,
-    "buildCommand": "npm install --legacy-peer-deps && next build"
-  }
-  
+  "buildCommand": "npm install --legacy-peer-deps && next build"
+}
