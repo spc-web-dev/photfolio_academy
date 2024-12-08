@@ -42,14 +42,16 @@ function HomeAbout() {
             },
           }}
           viewport={{ once: true }}
-          className="dark:text-neutral-400"
         >
-          I am a dedicated <span className="text-blue-500">Web Developer</span>{" "}
-          and <span className="text-blue-500">Network Engineer</span> with
-          expertise in creating responsive web applications and managing secure,
-          high-performance networks. I excel at bridging the gap between
-          software and infrastructure, delivering seamless digital experiences
-          and reliable connectivity.
+          <span className="dark:text-neutral-400">
+            I am a dedicated{" "}
+            <span className="text-blue-500">Web Developer</span> and{" "}
+            <span className="text-blue-500">Network Engineer</span> with
+            expertise in creating responsive web applications and managing
+            secure, high-performance networks. I excel at bridging the gap
+            between software and infrastructure, delivering seamless digital
+            experiences and reliable connectivity.
+          </span>
         </motion.p>
         <Accordion type="single" collapsible className="">
           <AccordionItem value="kh">
@@ -59,8 +61,7 @@ function HomeAbout() {
               និងវិស្វករបណ្តាញដែលមានជំនាញក្នុងការបង្កើតកម្មវិធីគេហទំព័រដែលឆ្លើយតប
               និងការគ្រប់គ្រងបណ្តាញប្រកបដោយសុវត្ថិភាព និងមានប្រសិទ្ធភាពខ្ពស់។
               ខ្ញុំពូកែក្នុងការភ្ជាប់គម្លាតរវាងផ្នែកទន់ និងហេដ្ឋារចនាសម្ព័ន្ធ
-              ដោយផ្តល់នូវបទពិសោធន៍ឌីជីថល
-              និងការតភ្ជាប់ដែលអាចទុកចិត្តបាន។
+              ដោយផ្តល់នូវបទពិសោធន៍ឌីជីថល និងការតភ្ជាប់ដែលអាចទុកចិត្តបាន។
             </AccordionContent>
           </AccordionItem>
         </Accordion>
