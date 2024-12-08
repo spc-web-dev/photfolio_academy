@@ -18,6 +18,10 @@ const Myavatar = () => {
         },
       }}
       viewport={{ once: true }}
+      style={{
+        width: '100%',
+        height: '100%'
+      }}
     >
       <div className="relative w-[95%] h-[85%] overflow-hidden rounded-3xl">
         <Image
