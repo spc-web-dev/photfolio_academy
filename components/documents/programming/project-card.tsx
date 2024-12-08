@@ -11,7 +11,6 @@ import {
 import Image from "next/image";
 import { motion } from "motion/react";
 import { RefObject } from "react";
-
 type Props = {
   index: number;
   projectsRef: RefObject<any[]>;
