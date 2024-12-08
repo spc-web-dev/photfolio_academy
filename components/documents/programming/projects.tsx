@@ -9,7 +9,7 @@ import { setInViewId } from "@/lib/redux/features/scroll-slice";
 
 function Projects() {
   const dispatch = useAppDispatch()
-  const projectRefs = useRef<(HTMLDivElement | null)[]>([])
+  const projectRefs = useRef<(HTMLDivElement)[]>([])
     useEffect(() => {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -45,7 +45,7 @@ function Projects() {
         <ProTitle title="Projects" />
         <div className="flex flex-wrap justify-around gap-4">
             {Array.from({ length: 10 }).map((_,index)=>(
-                <ProjectCard key={index} index={index} ref={projectRefs}/>
+                <ProjectCard key={index} index={index} projectsRef={projectRefs}/>
             ))}
         </div>
     </section>

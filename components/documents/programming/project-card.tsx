@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -10,42 +10,44 @@ import {
 } from "@/components/ui/card";
 import Image from "next/image";
 import { motion } from "motion/react";
-import { MutableRefObject } from "react";
+import { RefObject } from "react";
 
 type Props = {
-    index: number;
-    ref: MutableRefObject<(HTMLDivElement | null)[]>;
-}
+  index: number;
+  projectsRef: RefObject<any[]>;
+};
 
-function ProjectCard({index, ref }: Props) {
+function ProjectCard({ index, projectsRef }: Props) {
   return (
-    <motion.div className="w-full h-full"
-    ref={el=>{ref.current[index] = el}}
-    id={'project'+index}
-    initial={{
-        y:200,
-        opacity:0,
-    }}
-    animate={{
+    <motion.div
+      ref={(el) => {
+        projectsRef.current[index] = el;
+      }}
+      initial={{
+        y: 200,
+        opacity: 0,
+      }}
+      animate={{
         transition: {
-            delay:2 * index,
-            duration:2,
-            ease:'easeInOut',
-        }
-    }}
-    whileInView={{
+          delay: 2 * index,
+          duration: 2,
+          ease: "easeInOut",
+        },
+      }}
+      whileInView={{
         opacity: 1,
-        y:0,
-    }}
-    viewport={{ once: false }}
+        y: 0,
+      }}
+      viewport={{ once: false }}
     >
+      <div className="w-full h-full" id={"project" + index}>
         <Card className="w-full">
-        <CardHeader className="px-0 pt-0">
+          <CardHeader className="px-0 pt-0">
             <CardTitle></CardTitle>
-        </CardHeader>
-        <CardContent>
+          </CardHeader>
+          <CardContent>
             <div className="relative w-full max-h-72 h-72 rounded-md overflow-hidden">
-            <Image
+              <Image
                 src={"/images/programming.avif"}
                 alt="project"
                 width={385}
@@ -53,21 +55,22 @@ function ProjectCard({index, ref }: Props) {
                 priority
                 quality={95}
                 className=" absolute object-cover w-full h-full transition-all duration-500 ease-in-out hover:scale-125"
-            />
+              />
             </div>
-        </CardContent>
-        <CardFooter className="space-y-2 flex-col items-start">
+          </CardContent>
+          <CardFooter className="space-y-2 flex-col items-start">
             <CardTitle>Photfolio Web.</CardTitle>
             <CardDescription>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi,
-            modi.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Excepturi, modi.
             </CardDescription>
             <div className="space-x-2">
-            <Button variant={"secondary"}>View website</Button>
-            <Button variant={"secondary"}>Github</Button>
+              <Button variant={"secondary"}>View website</Button>
+              <Button variant={"secondary"}>Github</Button>
             </div>
-        </CardFooter>
+          </CardFooter>
         </Card>
+      </div>
     </motion.div>
   );
 }
