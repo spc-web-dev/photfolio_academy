@@ -13,14 +13,14 @@ import { motion } from "motion/react";
 import { RefObject } from "react";
 type Props = {
   index: number;
-  projectsRef: RefObject<any[]>;
+  projectsRef: RefObject<HTMLDivElement[] | unknown[]>;
 };
 
 function ProjectCard({ index, projectsRef }: Props) {
   return (
     <motion.div
       ref={(el) => {
-        projectsRef.current[index] = el;
+            projectsRef.current[index] = el;
       }}
       initial={{
         y: 200,
