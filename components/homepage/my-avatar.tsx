@@ -19,7 +19,7 @@ const Myavatar = () => {
       }}
       viewport={{ once: true }}
     >
-      <span className="relative w-[95%] h-[85%] overflow-hidden rounded-3xl">
+      <div className="relative w-[95%] h-[85%] overflow-hidden rounded-3xl">
         <Image
           src={"/images/avatar.jpg"}
           alt="avarta"
@@ -29,7 +29,7 @@ const Myavatar = () => {
           priority
           quality={95}
         />
-      </span>
+      </div>
     </motion.div>
   );
 };
