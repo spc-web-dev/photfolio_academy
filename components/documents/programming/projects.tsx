@@ -29,7 +29,7 @@ function Projects() {
           observer.observe(ref);
         }
       });
-  
+      console.log('hello')
       // Cleanup observer when component unmounts or videos change
       return () => {
         projectRefs.current.forEach((ref) => {
@@ -38,6 +38,7 @@ function Projects() {
           }
         });
       };
+      
     }, [dispatch]);
 
   return (

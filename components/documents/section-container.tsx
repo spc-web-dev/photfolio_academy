@@ -11,12 +11,11 @@ import { setInViewId } from "@/lib/redux/features/scroll-slice";
 const SectionContainer = ({ id }: { id: string }) => {
   const [videos, setVideos] = useState<(typeof VideosData)[number][]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
-  const childRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const childRefs = useRef<(HTMLDivElement)[]>([]);
   const dispatch = useAppDispatch();
 
   const handleRefChildren = (el: HTMLDivElement | null, index: number) => {
     if (el) childRefs.current[index] = el;
-
   };
 
   useEffect(() => {
@@ -60,7 +59,7 @@ const SectionContainer = ({ id }: { id: string }) => {
       {videos.map((vd, index) => {
         const idPath = vd.title.replace(/ /g, "_").toLowerCase();
         return (
-          <motion.div
+          <div
             key={vd.id}
             id={idPath}
             ref={(el) => handleRefChildren(el, index)}
@@ -71,7 +70,7 @@ const SectionContainer = ({ id }: { id: string }) => {
           >
             <SectionCard title={vd.title} url={vd.url} id={vd.id.toString()}/>
             <Separator className="my-4" />
-          </motion.div>
+          </div>
         );
       })}
     </div>

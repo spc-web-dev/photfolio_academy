@@ -19,9 +19,6 @@ type Props = {
 function ProjectCard({ index, projectsRef }: Props) {
   return (
     <motion.div
-      ref={(el) => {
-            projectsRef.current[index] = el;
-      }}
       initial={{
         y: 200,
         opacity: 0,
@@ -39,7 +36,10 @@ function ProjectCard({ index, projectsRef }: Props) {
       }}
       viewport={{ once: false }}
     >
-      <div className="w-full h-full" id={"project" + index}>
+      <div className="w-full h-full" id={"project" + index} 
+      ref={(el) => {
+            projectsRef.current[index] = el;
+      }}>
         <Card className="w-full">
           <CardHeader className="px-0 pt-0">
             <CardTitle></CardTitle>
