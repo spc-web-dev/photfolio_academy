@@ -1,9 +1,9 @@
-CREATE TYPE "public"."project_type" AS ENUM('programming', 'networking');--> statement-breakpoint
-CREATE TYPE "public"."user_role" AS ENUM('admin', 'student', 'viewer');--> statement-breakpoint
+CREATE TYPE "public"."skill_type" AS ENUM('programming', 'networking');--> statement-breakpoint
+CREATE TYPE "public"."role" AS ENUM('admin', 'student', 'viewer');--> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "projectsTable" (
-	"id" integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "projectsTable_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START WITH 1 CACHE 1),
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"name" varchar NOT NULL,
-	"skill_id" integer NOT NULL,
+	"skill_id" uuid NOT NULL,
 	"image" text NOT NULL,
 	"github_repo" text DEFAULT '' NOT NULL,
 	"visit_url" text DEFAULT '' NOT NULL,
@@ -12,8 +12,8 @@ CREATE TABLE IF NOT EXISTS "projectsTable" (
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "skillsTable" (
-	"id" integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "skillsTable_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START WITH 1 CACHE 1),
-	"type" "project_type" NOT NULL,
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"skill_type" "skill_type" NOT NULL,
 	"title" varchar NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
@@ -21,11 +21,11 @@ CREATE TABLE IF NOT EXISTS "skillsTable" (
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "users" (
-	"id" integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "users_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START WITH 1 CACHE 1),
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"username" varchar(255) NOT NULL,
 	"email" varchar(255) NOT NULL,
 	"password" varchar NOT NULL,
-	"role" "user_role" DEFAULT 'viewer' NOT NULL,
+	"role" "role" DEFAULT 'viewer' NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	CONSTRAINT "users_email_unique" UNIQUE("email"),
@@ -33,13 +33,13 @@ CREATE TABLE IF NOT EXISTS "users" (
 );
 --> statement-breakpoint
 CREATE TABLE IF NOT EXISTS "videosTable" (
-	"id" integer PRIMARY KEY GENERATED ALWAYS AS IDENTITY (sequence name "videosTable_id_seq" INCREMENT BY 1 MINVALUE 1 MAXVALUE 2147483647 START WITH 1 CACHE 1),
+	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"title_en" varchar(255) NOT NULL,
 	"title_kh" varchar(255) NOT NULL,
 	"descriptions_en" text DEFAULT '',
 	"descriptions_kh" text DEFAULT '',
 	"url" text,
-	"skill_id" integer NOT NULL,
+	"skill_id" uuid NOT NULL,
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	CONSTRAINT "videosTable_url_unique" UNIQUE("url")

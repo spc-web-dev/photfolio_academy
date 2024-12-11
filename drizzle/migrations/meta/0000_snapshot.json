@@ -1,5 +1,5 @@
 {
-  "id": "cf8dc563-2217-4844-8cb2-159a798aaec5",
+  "id": "050c1001-c696-46fb-a7a7-32321269a9f0",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -10,20 +10,10 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "integer",
+          "type": "uuid",
           "primaryKey": true,
           "notNull": true,
-          "identity": {
-            "type": "always",
-            "name": "projectsTable_id_seq",
-            "schema": "public",
-            "increment": "1",
-            "startWith": "1",
-            "minValue": "1",
-            "maxValue": "2147483647",
-            "cache": "1",
-            "cycle": false
-          }
+          "default": "gen_random_uuid()"
         },
         "name": {
           "name": "name",
@@ -33,7 +23,7 @@
         },
         "skill_id": {
           "name": "skill_id",
-          "type": "integer",
+          "type": "uuid",
           "primaryKey": false,
           "notNull": true
         },
@@ -100,24 +90,14 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "integer",
+          "type": "uuid",
           "primaryKey": true,
           "notNull": true,
-          "identity": {
-            "type": "always",
-            "name": "skillsTable_id_seq",
-            "schema": "public",
-            "increment": "1",
-            "startWith": "1",
-            "minValue": "1",
-            "maxValue": "2147483647",
-            "cache": "1",
-            "cycle": false
-          }
+          "default": "gen_random_uuid()"
         },
-        "type": {
-          "name": "type",
-          "type": "project_type",
+        "skill_type": {
+          "name": "skill_type",
+          "type": "skill_type",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true
@@ -165,20 +145,10 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "integer",
+          "type": "uuid",
           "primaryKey": true,
           "notNull": true,
-          "identity": {
-            "type": "always",
-            "name": "users_id_seq",
-            "schema": "public",
-            "increment": "1",
-            "startWith": "1",
-            "minValue": "1",
-            "maxValue": "2147483647",
-            "cache": "1",
-            "cycle": false
-          }
+          "default": "gen_random_uuid()"
         },
         "username": {
           "name": "username",
@@ -200,7 +170,7 @@
         },
         "role": {
           "name": "role",
-          "type": "user_role",
+          "type": "role",
           "typeSchema": "public",
           "primaryKey": false,
           "notNull": true,
@@ -250,20 +220,10 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "integer",
+          "type": "uuid",
           "primaryKey": true,
           "notNull": true,
-          "identity": {
-            "type": "always",
-            "name": "videosTable_id_seq",
-            "schema": "public",
-            "increment": "1",
-            "startWith": "1",
-            "minValue": "1",
-            "maxValue": "2147483647",
-            "cache": "1",
-            "cycle": false
-          }
+          "default": "gen_random_uuid()"
         },
         "title_en": {
           "name": "title_en",
@@ -299,7 +259,7 @@
         },
         "skill_id": {
           "name": "skill_id",
-          "type": "integer",
+          "type": "uuid",
           "primaryKey": false,
           "notNull": true
         },
@@ -350,16 +310,16 @@
     }
   },
   "enums": {
-    "public.project_type": {
-      "name": "project_type",
+    "public.skill_type": {
+      "name": "skill_type",
       "schema": "public",
       "values": [
         "programming",
         "networking"
       ]
     },
-    "public.user_role": {
-      "name": "user_role",
+    "public.role": {
+      "name": "role",
       "schema": "public",
       "values": [
         "admin",
