@@ -31,7 +31,7 @@ function SearchButton() {
         </Button>
       </DialogTrigger>
       <DialogContent className=" md:max-w-[450px] max-w-[90%] rounded-md">
-        <DialogTitle></DialogTitle>
+        <DialogTitle className="hidden">search content</DialogTitle>
         <div>
           <Command className="">
             <CommandInput placeholder="Type a command or search..." />

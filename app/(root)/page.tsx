@@ -3,7 +3,10 @@ import HomeRightSide from "@/components/homepage/home-rightside";
 import WhoAmI from "@/components/homepage/who-am-i";
 
 
-export default function Home() {
+
+
+export default async function Home() {
+
   return (
     <div className="w-full h-full">
       <section className="h-[calc(100vh_-_100px)] max-h-[calc(100vh_-_100px)]">

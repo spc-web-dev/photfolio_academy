@@ -36,6 +36,18 @@ function NavbarLeft() {
             </Link>
           </li>
         ))}
+        <li >
+            <Link
+              href={'/dashboard'}
+              className={`capitalize text-[14px]  hover:text-slate-900 dark:hover:text-slate-300 ${
+                pathname === 'dashboard'
+                  ? "text-blue-500 dark:text-blue-500"
+                  : "text-slate-500 dark:text-slate-400"
+              }`}
+            >
+              Dashboard
+            </Link>
+          </li>
       </ul>
     </div>
   );

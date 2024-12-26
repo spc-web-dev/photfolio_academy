@@ -45,6 +45,11 @@ function NavbarLeftSmallScreen() {
                     Documents
                   </Label>
                 </Link>
+                <Link className={`${pathname === '/dashboard' ? ' text-blue-500': ''}`} href={'/dashboard'}>
+                  <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
+                    Dashboard
+                  </Label>
+                </Link>
             </div>
             <div className="flex flex-col gap-4">
               <SheetDescription>Programming</SheetDescription>
