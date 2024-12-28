@@ -19,7 +19,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import { GetUsers } from "@/lib/action";
+import { GetUsers } from "@/lib/action-users";
 import { TableUserType } from "@/drizzle/table-type";
 import Link from "next/link";
 

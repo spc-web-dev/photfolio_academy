@@ -1,6 +1,6 @@
 {
-  "id": "70025d3a-5787-4d12-b6b1-7466af76a21a",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "ad616490-afcb-4d87-a4c4-cc4918e74c2c",
+  "prevId": "70025d3a-5787-4d12-b6b1-7466af76a21a",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -17,7 +17,7 @@
         },
         "name": {
           "name": "name",
-          "type": "varchar",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
         },
@@ -37,14 +37,14 @@
           "name": "github_repo",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "default": "''"
         },
         "visit_url": {
           "name": "visit_url",
           "type": "text",
           "primaryKey": false,
-          "notNull": true,
+          "notNull": false,
           "default": "''"
         },
         "created_at": {
@@ -104,7 +104,7 @@
         },
         "title": {
           "name": "title",
-          "type": "varchar",
+          "type": "varchar(255)",
           "primaryKey": false,
           "notNull": true
         },
@@ -201,13 +201,6 @@
           "columns": [
             "email"
           ]
-        },
-        "users_password_unique": {
-          "name": "users_password_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "password"
-          ]
         }
       },
       "policies": {},
@@ -255,7 +248,8 @@
           "name": "url",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": false,
+          "default": "''"
         },
         "skill_id": {
           "name": "skill_id",
@@ -295,15 +289,7 @@
         }
       },
       "compositePrimaryKeys": {},
-      "uniqueConstraints": {
-        "videosTable_url_unique": {
-          "name": "videosTable_url_unique",
-          "nullsNotDistinct": false,
-          "columns": [
-            "url"
-          ]
-        }
-      },
+      "uniqueConstraints": {},
       "policies": {},
       "checkConstraints": {},
       "isRLSEnabled": false

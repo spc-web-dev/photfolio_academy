@@ -25,10 +25,7 @@ export const usersTable = pgTable("users", {
     .$onUpdate(() => new Date()),
 });
 
-export const skillsType = pgEnum("skill_type", [
-  "programming",
-  "networking",
-]);
+export const skillsType = pgEnum("skill_type", ["programming", "networking"]);
 
 export const skillsTable = pgTable("skillsTable", {
   id: uuid().primaryKey().defaultRandom(),

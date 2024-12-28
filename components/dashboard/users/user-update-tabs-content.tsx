@@ -4,7 +4,7 @@ import UserCombobox from "./user-combobox";
 import UpdateTabs from "./update-tabs";
 import { useEffect, useState } from "react";
 import { TableUserType } from "@/drizzle/table-type";
-import { FetchUserById } from "@/lib/action";
+import { FetchUserById } from "@/lib/action-users";
 
 
 function UserUpdateTabsContent({ userId }: { userId: string }) {

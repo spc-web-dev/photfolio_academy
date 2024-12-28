@@ -1,9 +1,15 @@
+import SkillsTabs from "@/components/dashboard/skills/skills-tabs"
 
 
-function page() {
+ async function page({ searchParams }:{
+  searchParams: Promise<{
+    tabs: string;
+    skill_id: string;
+  }>
+}) {
   return (
     <div>
-        skills page
+        <SkillsTabs tabs={(await searchParams).tabs} skill_id={(await searchParams).skill_id} />
     </div>
   )
 }

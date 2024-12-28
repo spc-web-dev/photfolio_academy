@@ -36,7 +36,7 @@ import {
 import { useState } from "react";
 import { TableUserType } from "@/drizzle/table-type";
 import Link from "next/link";
-import { DeleteUserById } from "@/lib/action";
+import { DeleteUserById } from "@/lib/action-users";
 import { toast } from "sonner";
 import UserSheetViewer from "./user-sheet-viewer";
 import {
@@ -146,7 +146,33 @@ export const columns: ColumnDef<TableUserType>[] = [
     },
   },
   {
-    id: "actions",
+    accessorKey: "updatedAt",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Updated at
+          <ArrowUpDown />
+        </Button>
+      );
+    },
+    cell: ({ row }) => {
+      const date = new Date(row.getValue("updatedAt")).toLocaleDateString(
+        "en-GB",
+        {
+          day: "2-digit",
+          month: "short",
+          year: "numeric",
+        }
+      );
+      return <div className=" text-sm">{date}</div>;
+    },
+  },
+  {
+    accessorKey: 'password',
+    header: '',
     enableHiding: false,
     cell: ({ row }) => {
       const id = row.original.id;
@@ -168,7 +194,7 @@ export const columns: ColumnDef<TableUserType>[] = [
           </PopoverTrigger>
           <PopoverContent className="w-fit">
             <div className="flex flex-col">
-              <UserSheetViewer>
+              <UserSheetViewer row={row}>
                 <Button variant={'ghost'} className=" justify-start">View user</Button>
               </UserSheetViewer>
               <Button variant={"ghost"} asChild className=" justify-start">

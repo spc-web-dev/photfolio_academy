@@ -1,4 +1,4 @@
-import { TableUserType } from "@/drizzle/table-type";
+import { TableSkillsType, TableUserType } from "@/drizzle/table-type";
 
 
 export type UserType = {
@@ -28,4 +28,21 @@ export interface ActionResponseUser {
     [K in keyof UserType]?: string[];
   };
 }
+
+
+export type SkillType = {
+  id?: string;
+  skillType: 'programming'|'networking';
+  title: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export type SkillReponse = {
+  success: boolean;
+  message: string;
+  data?: TableSkillsType[] | TableSkillsType ;
+}
+
+
 
