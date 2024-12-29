@@ -12,6 +12,8 @@ import { editSkillById } from '@/lib/action-skills'
 import { toast } from 'sonner'
 import { SkillType } from '@/lib/type'
 
+
+
 const skillSchema = z.object({
   skillType: z.enum(['programming', 'networking'], { message: 'Skill type must be either programming or networking' }),
   title: z.string().min(2, { message: 'Title must be at least 2 characters long' }),
@@ -22,7 +24,7 @@ function SkillTabsUpdate({ data, skillId }: { data : SkillType; skillId: string 
     resolver: zodResolver(skillSchema),
     defaultValues: {
       title: data.title,
-      skillType:data.skillType,
+      skillType: data.skillType,
     }
   })
 
@@ -34,7 +36,6 @@ function SkillTabsUpdate({ data, skillId }: { data : SkillType; skillId: string 
       })
     }
   }
-  console.log(data)
   return (
     <TabsContent value='update'>
         <Form {...form}>

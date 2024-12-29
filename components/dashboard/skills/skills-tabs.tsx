@@ -1,25 +1,16 @@
-'use client'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+'use server'
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import SkillTabsViews from "./skill-tabs-views";
 import SkillTabsUpdate from "./skill-tabs-update";
 import SkillTabsAdd from "./skill-tabs-add";
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { fetchSkillById } from "@/lib/action-skills";
 import { SkillType } from "@/lib/type";
+import { getSkillById } from "@/drizzle/func/skills";
+import SkillSkelentoUpdate from "./skill-skelenton-update";
 
 
-function SkillsTabs({ tabs, skill_id }: { tabs: string; skill_id: string }) {
-  const [skill,setSkill] = useState<SkillType>()
-  useEffect(()=>{
-    if(skill_id != ''){
-      async function handleFetch(){
-        const { data } = await fetchSkillById(skill_id)
-        data && setSkill(data as SkillType)
-      }
-      handleFetch()
-    }
-  },[skill_id])
+async function SkillsTabs({ tabs, skill_id }: { tabs: string; skill_id: string }) {
+  const skill = await getSkillById(skill_id)
   return (
     <Tabs defaultValue={"views"} value={tabs ? tabs : "views"}>
       <TabsList>
@@ -34,11 +25,7 @@ function SkillsTabs({ tabs, skill_id }: { tabs: string; skill_id: string }) {
         </TabsTrigger>
       </TabsList>
       <SkillTabsViews tabs={tabs} />
-        {skill ? <SkillTabsUpdate data={skill as SkillType} skillId={skill_id}/> : <TabsContent value="tabs">
-            <div>
-            loading... loading....
-            </div>
-          </TabsContent>}
+      {skill.data ?  <SkillTabsUpdate data={skill.data as SkillType} skillId={skill_id}/> :<SkillSkelentoUpdate />}
       <SkillTabsAdd />
     </Tabs>
   );

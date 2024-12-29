@@ -1,8 +1,9 @@
 "use server";
 
-import { unstable_expirePath } from "next/cache";
+import { revalidatePath, unstable_expirePath } from "next/cache";
 import { SkillReponse, SkillType } from "./type";
 import { addSkill, getSkillById, getSkills, updateSkillById } from "@/drizzle/func/skills";
+
 
 export const fetchSkills = async (): Promise<SkillReponse> => {
   try {
@@ -43,9 +44,13 @@ export const fetchSkillById = async (id: string): Promise<SkillReponse>=>{
 
 export const editSkillById = async (id: string, data: SkillType): Promise<SkillReponse>=>{
   const res = await updateSkillById(id,data)
+  revalidatePath('/dashboard/skills')
   return {
     success: res.success,
     message: res.message,
     data: res.data,
   }
 }
+
+
+
