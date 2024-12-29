@@ -41,7 +41,7 @@ const setting = [
   },
   {
     title: "Projects",
-    url: "#",
+    url: "/dashboard/projects",
   },
   {
     title: "Videos",
