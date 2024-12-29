@@ -25,7 +25,6 @@ export const getUsers = async (): Promise<UserResponse> => {
     return {
       success: false,
       message: errorMessage,
-      error,
     };
   }
 };
@@ -50,7 +49,6 @@ export const getUserById = async (id: string): Promise<UserResponse> => {
     return {
       success: false,
       message: errorMessage,
-      error,
     };
   }
 };
@@ -71,7 +69,6 @@ export const addUser = async (user: UserType): Promise<UserResponse> => {
     return {
       success: false,
       message: errorMessage,
-      error,
     }
   }
 };
@@ -94,7 +91,6 @@ export const updateUserById = async (id: string, user: UserType): Promise<UserRe
     return {
       success: false,
       message: errorMessage,
-      error,
     };
   }
 };
@@ -117,7 +113,6 @@ export const deleteUserById = async (id: string): Promise<UserResponse> => {
     return {
       success: false,
       message: errorMessage,
-      error,
     };
   }
 };

@@ -19,7 +19,7 @@ export const getVideos = async ()=>{
     }
 }
 
-export const getSkillById = async (id: number)=>{
+export const getSkillById = async (id: string)=>{
     try {
         const video = await db.select().from(videosTable).where(eq(videosTable.id,id))
         return {
@@ -43,7 +43,7 @@ export const addVideo = async (video: TableVideoType)=>{
     }
 }
 
-export const updateVideoById = async (id: number, video: TableVideoType)=>{
+export const updateVideoById = async (id: string, video: TableVideoType)=>{
     try {
         await db.update(videosTable).set(video).where(eq(videosTable.id, id))
         console.log("video has been updated sucessfully.")

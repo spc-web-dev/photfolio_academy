@@ -148,7 +148,6 @@ export async function FetchUserById(id: string): Promise<UserResponse> {
     return {
       success: false,
       message,
-      error,
     }
   }
 }
@@ -169,7 +168,6 @@ export async function GetUsers(): Promise<UserResponse> {
     return {
       success: false,
       message,
-      error,
     }
   }
 }
@@ -190,7 +188,6 @@ export async function DeleteUserById(id: string): Promise<UserResponse> {
     return {
       success: false,
       message,
-      error,
     }
   }
 

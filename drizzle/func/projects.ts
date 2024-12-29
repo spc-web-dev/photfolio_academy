@@ -19,7 +19,7 @@ export const getProjects = async ()=>{
     }
 }
 
-export const getProjectById = async (id: number)=>{
+export const getProjectById = async (id: string)=>{
     try {
         const project = await db.select().from(projectsTable).where(eq(projectsTable.id,id))
         return {
@@ -43,7 +43,7 @@ export const addProject = async (project: TableProjectType)=>{
     }
 }
 
-export const updateProjectById = async (id: number, project: TableProjectType)=>{
+export const updateProjectById = async (id: string, project: TableProjectType)=>{
     try {
         await db.update(projectsTable).set(project).where(eq(projectsTable.id, id))
         console.log("Project has been updated sucessfully.")
