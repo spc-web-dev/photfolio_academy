@@ -13,9 +13,8 @@ function UserUpdateTabsContent({ userId }: { userId: string }) {
   useEffect(() => {
     async function handle() {
       const data = await FetchUserById(userId);
-      setUser((prev) => {
-        return (prev = data.data as TableUserType);
-      });
+
+      if(data.success) setUser(data.data as TableUserType);
     }
     handle();
   }, [userId]);

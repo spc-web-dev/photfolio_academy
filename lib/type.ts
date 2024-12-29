@@ -15,7 +15,9 @@ export type UserType = {
 export type UserResponse = {
   success: boolean;
   message: string;
-  error?: any;
+  error?: {
+    [K in keyof UserType]?: string[];
+  };
   data?: TableUserType[] | TableUserType;
 };
 

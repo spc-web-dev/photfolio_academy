@@ -14,7 +14,7 @@ export const fetchSkills = async (): Promise<SkillReponse> => {
         message: skills.message
     }
   } catch (error) {
-    let message =
+    const message =
       error instanceof Error ? error.message : "An unknown error occurred";
     return {
       success: false,

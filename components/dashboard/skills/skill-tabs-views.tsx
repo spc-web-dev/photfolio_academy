@@ -10,7 +10,9 @@ function SkillTabsViews({ tabs }: { tabs: string; }) {
     useEffect(()=>{
         async function fetch() {
             const res = await fetchSkills()
-            res && setSkills(res.data as SkillType[])
+            if (res) {
+                setSkills(res.data as SkillType[])
+            }
         }
         fetch()
     },[tabs])
