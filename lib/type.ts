@@ -1,4 +1,6 @@
 import { TableSkillsType, TableUserType } from "@/drizzle/table-type";
+import { UseFormReturn } from "react-hook-form";
+import * as z from "zod";
 
 
 export type UserType = {
@@ -45,6 +47,35 @@ export type SkillReponse = {
   message: string;
   data?: TableSkillsType[] | TableSkillsType ;
 }
+
+
+export type ProjectType = {
+  id?: string;
+  name: string;
+  skillId?:string;
+  image: string;
+  githubRep?: string;
+  visitUrl?:string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+
+export type ProjectRespone =  {
+  success: boolean;
+  message: string;
+  data?: ProjectType[] | ProjectType ;
+}
+
+export const projectSchema = z.object({
+  name: z.string().min(2, { message: 'Name must be at least 2 characters long' }),
+  skillId: z.string({ message: 'Skill ID is required' }),
+  image: z.string().url({ message: 'Image must be a valid URL' }),
+  githubRep: z.string().optional().default(''),
+  visitUrl: z.string().optional().default(''),
+})
+
+export type FormProjectType = UseFormReturn<z.infer<typeof projectSchema>>
 
 
 

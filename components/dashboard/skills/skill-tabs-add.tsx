@@ -8,7 +8,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { addNewSkill } from '@/lib/action-skills'
+import { addNewSkill } from '@/lib/action/action-skills'
 import { toast } from 'sonner'
 
 const skillSchema = z.object({

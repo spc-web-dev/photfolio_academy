@@ -34,7 +34,7 @@ import {
 import { useState } from "react";
 import { TableUserType } from "@/drizzle/table-type";
 import Link from "next/link";
-import { DeleteUserById } from "@/lib/action-users";
+import { DeleteUserById } from "@/lib/action/action-users";
 import { toast } from "sonner";
 import UserSheetViewer from "./user-sheet-viewer";
 import {

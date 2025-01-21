@@ -1,9 +1,13 @@
+import ProjectsTabs from "@/components/dashboard/projects/projects-tabs"
 
 
-function page() {
+async function page({ searchParams }: { searchParams: Promise<{
+  tabs: string;
+  project_id: string;
+}>}) {
   return (
     <div>
-        projects page
+        <ProjectsTabs searchParams={searchParams}/>
     </div>
   )
 }

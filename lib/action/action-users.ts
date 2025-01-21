@@ -1,7 +1,7 @@
 "use server";
 
 import * as z from "zod";
-import { ActionResponseUser, UserResponse, UserType } from "./type";
+import { ActionResponseUser, UserResponse, UserType } from "../type";
 import { addUser, deleteUserById, getUserById, getUsers, updateUserById } from "@/drizzle/func/users";
 import { TableUserType } from "@/drizzle/table-type";
 

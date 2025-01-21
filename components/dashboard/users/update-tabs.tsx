@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { TableUserType } from "@/drizzle/table-type";
-import { handleActionFormUpdateUser } from "@/lib/action-users";
+import { handleActionFormUpdateUser } from "@/lib/action/action-users";
 import { ActionResponseUser } from "@/lib/type";
 import { CheckCircle2 } from "lucide-react";
 import React, { useActionState, useEffect, useState } from "react";
