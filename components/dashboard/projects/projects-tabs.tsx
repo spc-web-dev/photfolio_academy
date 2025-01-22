@@ -16,8 +16,8 @@ async function ProjectsTabs({ searchParams }: { searchParams: Promise<{ tabs: st
         <TabsTrigger value="views">
           <Link href={`/dashboard/projects?tabs=views`}>Views</Link>
         </TabsTrigger>
-        <TabsTrigger value="update">
-          <Link href={`/dashboard/projects?tabs=update&project_id=`}>Update</Link>
+        <TabsTrigger value="update" disabled={!project_id}>
+          <Link href={`/dashboard/projects?tabs=update&project_id=${project_id}`}>Update</Link>
         </TabsTrigger>
         <TabsTrigger value="add_new">
           <Link href={`/dashboard/projects?tabs=add_new`}>Add new</Link>

@@ -60,7 +60,7 @@ export const videosTable = pgTable("videosTable", {
   titleKh: varchar("title_kh", { length: 255 }).notNull(),
   descriptionsEn: text("descriptions_en").default(""),
   descriptionsKh: text("descriptions_kh").default(""),
-  url: text("url").unique(),
+  url: text("url").unique().notNull(),
   skillId: uuid("skill_id")
     .notNull()
     .references(() => skillsTable.id),

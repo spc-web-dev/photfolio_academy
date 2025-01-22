@@ -1,8 +1,11 @@
 "use server";
 
 import { revalidatePath, unstable_expirePath } from "next/cache";
-import { SkillReponse, SkillType } from "./type";
+import { SkillReponse, SkillType } from "@/lib/type";
 import { addSkill, getSkillById, getSkills, updateSkillById } from "@/drizzle/func/skills";
+import { db } from "@/drizzle/db";
+import { skillsTable } from "@/drizzle/schema";
+import { eq } from "drizzle-orm";
 
 
 export const fetchSkills = async (): Promise<SkillReponse> => {
@@ -49,6 +52,25 @@ export const editSkillById = async (id: string, data: SkillType): Promise<SkillR
     success: res.success,
     message: res.message,
     data: res.data,
+  }
+}
+
+
+export const getSkillsByType = async (type: 'programming' | 'networking'): Promise<SkillReponse> => {
+  try {
+    const skills = await db.select().from(skillsTable).where(eq(skillsTable.skillType, type));
+    return {
+      success: true,
+      data: skills,
+      message: "Skills retrieved successfully",
+    }
+  } catch (error) {
+    const message =
+      error instanceof Error ? error.message : "An unknown error occurred";
+    return {
+      success: false,
+      message,
+    };
   }
 }
 

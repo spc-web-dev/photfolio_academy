@@ -1,14 +1,15 @@
 'use client'
 
 import { useState, useEffect, useRef } from "react";
-import { VideosData } from "@/lib/data";
 import SectionCard from "./section-card";
 import { Separator } from "../ui/separator";
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { setInViewId } from "@/lib/redux/features/scroll-slice";
+import { getVideosBySkillId } from "@/lib/action/action-videos";
+import { VideoType } from "@/lib/type";
 
 const SectionContainer = ({ id }: { id: string }) => {
-  const [videos, setVideos] = useState<(typeof VideosData)[number][]>([]);
+  const [videos, setVideos] = useState<VideoType[]>([]);
   const containerRef = useRef<HTMLDivElement>(null);
   const childRefs = useRef<(HTMLDivElement)[]>([]);
   const dispatch = useAppDispatch();
@@ -18,8 +19,13 @@ const SectionContainer = ({ id }: { id: string }) => {
   };
 
   useEffect(() => {
-    const filteredVideos = VideosData.filter((vd) => vd.lesson_id === id);
-    setVideos(filteredVideos);
+    async function fetchVideos() {
+      const res = await getVideosBySkillId(id);
+      if(res.success && res.data){
+        setVideos(res.data as VideoType[])
+      }
+    }
+    fetchVideos()
   }, [id]);
 
   // Intersection Observer to track visibility of each section
@@ -55,8 +61,8 @@ const SectionContainer = ({ id }: { id: string }) => {
 
   return (
     <div ref={containerRef}>
-      {videos.map((vd, index) => {
-        const idPath = vd.title.replace(/ /g, "_").toLowerCase();
+      {videos && videos.map((vd, index) => {
+        const idPath = vd.titleEn.replace(/ /g, "_").toLowerCase();
         return (
           <div
             key={vd.id}
@@ -67,11 +73,16 @@ const SectionContainer = ({ id }: { id: string }) => {
               transition: "background-color 0.3s ease",
             }}
           >
-            <SectionCard title={vd.title} url={vd.url} id={vd.id.toString()}/>
+            <SectionCard props={vd}/>
             <Separator className="my-4" />
           </div>
         );
       })}
+      {!videos.length && (
+        <div className="flex justify-center items-center">
+          <h1>Comming soon...</h1>
+        </div>
+      )}
     </div>
   );
 };

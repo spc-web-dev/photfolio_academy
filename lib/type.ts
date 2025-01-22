@@ -79,3 +79,31 @@ export type FormProjectType = UseFormReturn<z.infer<typeof projectSchema>>
 
 
 
+export const videoSchema= z.object({
+  titleEn: z.string().min(2, { message: 'Title must be at least 2 characters long' }),
+  titleKh: z.string().min(2, { message: 'Title must be at least 2 characters long' }),
+  descriptionsEn: z.string().optional().default(''),
+  descriptionsKh: z.string().optional().default(''),
+  url: z.string().url({ message: 'URL must be a valid URL' }),
+  skillId: z.string().min(10, { message: 'Skill ID is required' }),
+})
+
+export type FormVideoType = UseFormReturn<z.infer<typeof videoSchema>>
+
+export type VideoType = {
+  id?: string;
+  titleEn: string;
+  titleKh: string;
+  descriptionsEn?: string | null;
+  descriptionsKh?: string | null;
+  url: string;
+  skillId: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
+
+export type VideoResponse = {
+  success: boolean;
+  message: string;
+  data?: VideoType[] | VideoType;
+}

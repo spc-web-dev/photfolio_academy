@@ -1,13 +1,16 @@
 'use client'
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProTitle from "./pro-title"
 import ProjectCard from "./project-card"
 import { useAppDispatch } from "@/lib/redux/hooks";
 import { setInViewId } from "@/lib/redux/features/scroll-slice";
+import { fetchProjects } from "@/lib/action/action-project";
+import { ProjectType } from "@/lib/type";
 
 
 function Projects() {
+  const [projects, setProjects] = useState<ProjectType[]>()
   const dispatch = useAppDispatch()
   const projectRefs = useRef<(HTMLDivElement)[]>([])
     useEffect(() => {
@@ -40,12 +43,21 @@ function Projects() {
       
     }, [dispatch]);
 
+    useEffect(()=>{
+      const handleProjects = async ()=>{
+        const {success , data } = await fetchProjects()
+        if(success){
+          setProjects(data as ProjectType[])
+        }
+      }
+      handleProjects()
+    },[])
   return (
     <section className="space-y-4 text-sm">
         <ProTitle title="Projects" />
-        <div className="flex flex-wrap justify-around gap-4">
-            {Array.from({ length: 10 }).map((_,index)=>(
-                <ProjectCard key={index} index={index} projectsRef={projectRefs}/>
+        <div className="flex flex-wrap flex-col justify-around gap-4">
+            {projects && projects.map((pr,index)=>(
+                <ProjectCard key={index} data={pr} index={index} projectsRef={projectRefs}/>
             ))}
         </div>
     </section>

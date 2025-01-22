@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
-  CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
@@ -11,12 +10,15 @@ import {
 import Image from "next/image";
 import { motion } from "motion/react";
 import { RefObject } from "react";
+import { ProjectType } from "@/lib/type";
+import Link from "next/link";
 type Props = {
   index: number;
   projectsRef: RefObject<HTMLDivElement[] | unknown[]>;
+  data: ProjectType;
 };
 
-function ProjectCard({ index, projectsRef }: Props) {
+function ProjectCard({ index, projectsRef, data }: Props) {
   return (
     <motion.div
       initial={{
@@ -47,7 +49,7 @@ function ProjectCard({ index, projectsRef }: Props) {
           <CardContent>
             <div className="relative w-full max-h-72 h-72 rounded-md overflow-hidden">
               <Image
-                src={"/images/programming.avif"}
+                src={data.image}
                 alt="project"
                 width={385}
                 height={250}
@@ -58,14 +60,14 @@ function ProjectCard({ index, projectsRef }: Props) {
             </div>
           </CardContent>
           <CardFooter className="space-y-2 flex-col items-start">
-            <CardTitle>Photfolio Web.</CardTitle>
-            <CardDescription>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Excepturi, modi.
-            </CardDescription>
+            <CardTitle>{data.name}</CardTitle>
             <div className="space-x-2">
-              <Button variant={"secondary"}>View website</Button>
-              <Button variant={"secondary"}>Github</Button>
+              {data.visitUrl && <Button variant={"secondary"}>
+                <Link href={data.visitUrl as string}>View website</Link>
+              </Button>}
+              {data.githubRep && <Button variant={"secondary"}>
+                <Link href={data.githubRep as string}>Github</Link>
+              </Button>}
             </div>
           </CardFooter>
         </Card>

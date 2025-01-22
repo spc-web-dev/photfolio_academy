@@ -1,8 +1,12 @@
+import { Skeleton } from "@/components/ui/skeleton"
 
 
 function Loading() {
   return (
-    <div>Loading.....</div>
+    <div className="flex flex-col gap-4">
+      <Skeleton className='w-80 h-12 rounded-md' />
+      <Skeleton className='w-full h-96 rounded-md' />
+    </div>
   )
 }
 

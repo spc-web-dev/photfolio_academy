@@ -3,7 +3,7 @@ import { TabsContent } from '@/components/ui/tabs'
 import React, { useEffect, useState } from 'react'
 import SkillsViewsTable from './skills-views-table'
 import { SkillType } from '@/lib/type';
-import { fetchSkills } from '@/lib/action-skills';
+import { fetchSkills } from '@/lib/action/action-skills';
 
 function SkillTabsViews({ tabs }: { tabs: string; }) {
     const [skills,setSkills] = useState<SkillType[] | [] >([])

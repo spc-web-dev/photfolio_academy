@@ -41,6 +41,7 @@ function Image({ form }: { form: FormProjectType }) {
                       }
                     }}
                     onQueuesEnd={(result, { widget }) => {
+                      if(result){}
                       widget.close();
                     }}
                   >

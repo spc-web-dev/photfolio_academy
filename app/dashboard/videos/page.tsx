@@ -1,9 +1,10 @@
+import VideosTabs from "@/components/dashboard/videos/videos-tabs"
 
 
-async function page() {
+async function page({ searchParams }: { searchParams: Promise<{ tabs: string; video_id: string; }>}) {
   return (
     <div>
-        videos page
+        <VideosTabs searchParams={searchParams}/>
     </div>
   )
 }

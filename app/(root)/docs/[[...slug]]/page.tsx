@@ -10,25 +10,18 @@ type Props = {
 
 async function Page({ params }: Props) {
   const { slug } = await params;
-  if (!slug)
-    return (
-      <>
-        <DocsPage />
-      </>
-    );
-  if (slug && slug[0] === "programming") {
-    return (
-      <>
-        <ProgrammingContainer />
-      </>
-    );
+
+  if (!slug || slug.length === 0) {
+    return <DocsPage />;
   }
-  if (slug && slug[0] === "networking") {
-    return (
-      <>
-        <SectionContainer id={slug[1]} />
-      </>
-    );
+
+  switch (slug[0]) {
+    case "programming":
+      return <ProgrammingContainer />;
+    case "networking":
+      return <SectionContainer id={slug[1]} />;
+    default:
+      return <DocsPage />;
   }
 }
 

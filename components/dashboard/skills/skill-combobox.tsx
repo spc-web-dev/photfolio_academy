@@ -19,7 +19,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover"
 import { SkillType } from "@/lib/type"
-import { fetchSkills } from "@/lib/action-skills"
+import { fetchSkills } from "@/lib/action/action-skills"
 import { useRouter } from "next/navigation"
 
 

@@ -14,7 +14,6 @@ import {
 } from "@/components/ui/sidebar";
 import { DashboardIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 
 // Menu general.
@@ -107,20 +106,11 @@ export function AppSidebar() {
       <SidebarFooter>
         <Button
           size={"auto"}
-          variant={"ghost"}
+          variant={"secondary"}
           asChild
           className=" justify-start"
         >
-          <div>
-            <Avatar>
-              <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-              <AvatarFallback>CN</AvatarFallback>
-            </Avatar>
-            <span>
-              <h1>LA RESSANN</h1>
-              <small>laressann2001@gmail.com</small>
-            </span>
-          </div>
+          <Link href={'/'}>Back to homepage</Link>
         </Button>
       </SidebarFooter>
     </Sidebar>

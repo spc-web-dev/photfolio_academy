@@ -3,10 +3,12 @@ import { NavbarData } from "@/lib/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import NavbarLeftSmallScreen from "./navbar-left-small-screen";
+import { useUser } from "@clerk/nextjs";
 
 
 function NavbarLeft() {
   const pathname = usePathname();
+  const { user }= useUser()  
   return (
     <div className="flex items-center gap-4 relative">
       <NavbarLeftSmallScreen />
@@ -36,7 +38,7 @@ function NavbarLeft() {
             </Link>
           </li>
         ))}
-        <li >
+        {user ? (user.username === process.env.NEXT_PUBLIC_SECRET_USER) && <li >
             <Link
               href={'/dashboard'}
               className={`capitalize text-[14px]  hover:text-slate-900 dark:hover:text-slate-300 ${
@@ -47,7 +49,7 @@ function NavbarLeft() {
             >
               Dashboard
             </Link>
-          </li>
+          </li>: null}
       </ul>
     </div>
   );
