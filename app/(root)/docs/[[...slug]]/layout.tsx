@@ -1,9 +1,8 @@
 import DocsLeftSidebar from "@/components/documents/docs-left-sidebar";
 import DocsRightSidebar from "@/components/documents/docs-right-sidebar";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import React from "react";
 
-export const dynamic = 'force-dynamic'
+
 
 type Props = {
   children: React.ReactNode;
