@@ -64,14 +64,16 @@ async function Page({ params }: Props) {
   if (!slug || slug.length === 0) {
     return <DocsPage />;
   }
-
+  
   switch (slug[0]) {
     case "programming":
       return <ProgrammingContainer />;
     case "networking":
       const { data, success } = await getSkillsByType('networking');
       if(success && data) {
-        const isValideSlug = (data as SkillType[]).some((skill: SkillType) => (skill.id === slug[1]));
+        const isValideSlug = (data as SkillType[]).some((skill: SkillType) => (skill.id === slug[1].toString()));
+        console.log(slug[1])
+        console.log(isValideSlug)
         if(!isValideSlug) {
           return notFound();
         }

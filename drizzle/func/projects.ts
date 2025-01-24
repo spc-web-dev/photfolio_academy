@@ -1,8 +1,8 @@
 import 'server-only'
 import { db } from '../db'
 import { projectsTable } from '../schema'
-import { eq } from 'drizzle-orm'
-import { ProjectRespone, projectSchema, ProjectType } from '@/lib/type'
+import { desc, eq } from 'drizzle-orm'
+import { ProjectRespone, projectSchema } from '@/lib/type'
 import { revalidateTag, unstable_cache } from 'next/cache'
 import { cache } from 'react'
 import * as z from 'zod'
@@ -10,7 +10,7 @@ import * as z from 'zod'
 export const getProjects = async (): Promise<ProjectRespone>=>{
     try {
         const data = unstable_cache(async()=>{
-            const projects = await db.select().from(projectsTable)
+            const projects = await db.select().from(projectsTable).orderBy(desc(projectsTable.createdAt))
             return projects
         },
         ['/dashboard/projects'],

@@ -13,7 +13,7 @@ const HomeLeftSide = () => {
           view my projects and code on my <Link href={''} className="text-blue-500">GitHub</Link>.
         </p>
         <Button variant={"outline"} asChild>
-          <Link href={"/docs"}>Learn More</Link>
+          <Link href={"/docs"}>See More</Link>
         </Button>
       </div>
     </div>

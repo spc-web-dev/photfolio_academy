@@ -9,11 +9,10 @@ const HomeRightSide = () => {
         <ProfileLogo src="/images/networking.png" alt="networking" />
         <h1>NETWORKING</h1>
         <p className="text-center dark:text-slate-400 text-sm">
-          Click <span className="text-blue-500">Learn More</span> to explore more details about my networking skills
-          and how you can learn them.
+          Click <span className="text-blue-500">See More</span> to explore more details about my networking skills.
         </p>
         <Button variant={"outline"} asChild>
-          <Link href={"/docs"}>Learn More</Link>
+          <Link href={"/docs"}>See More</Link>
         </Button>
       </div>
     </div>

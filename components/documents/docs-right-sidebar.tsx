@@ -1,9 +1,11 @@
 "use client";
 import { ScrollArea } from "../ui/scroll-area";
-import { VideosData } from "@/lib/data";
 import { useEffect, useState } from "react";
 import DocsNetworkingSidebar from "./docs-networking-sidebar";
 import DocsProgrammingSidebar from "./docs-programming-sidebar";
+import { fetchProjects } from "@/lib/action/action-project";
+import { ProjectType, VideoType } from "@/lib/type";
+import { getVideosBySkillId } from "@/lib/action/action-videos";
 
 type Props = {
   params: Promise<{
@@ -12,16 +14,26 @@ type Props = {
 };
 
 const DocsRightSidebar = ({ params }: Props) => {
-  const [videos, setVideos] = useState<(typeof VideosData)[number][]>([]);
-  const [slug,setSlug] = useState<string[]>([])
+  const [videos, setVideos] = useState<VideoType[]>([]);
+  const [slug, setSlug] = useState<string[]>([]);
+  const [programming, setProgramming] = useState<
+    ProjectType[]
+  >();
 
   useEffect(() => {
     async function handle() {
       const { slug } = await params;
-      setSlug(slug)
-      if(slug) {
-        const vds = VideosData.filter((vd) => vd.lesson_id === slug[1])
-        setVideos(vds);
+      setSlug(slug);
+      if (slug) {
+        const vds= await getVideosBySkillId(slug[1]);
+        if(vds.success && vds.data){
+          setVideos(vds.data as VideoType[]);
+        }
+
+        const { success,data }= await fetchProjects()
+        if (success && data) {
+          setProgramming(data as ProjectType[]);
+        }
       }
     }
     handle();
@@ -30,10 +42,10 @@ const DocsRightSidebar = ({ params }: Props) => {
   return (
     <ScrollArea className="max-w-96 w-96 h-[calc(100vh_-_100px)] lg:block hidden ">
       <div>
-        <DocsNetworkingSidebar videos={videos} slug={slug}/>
-        {(slug && slug[0] === 'programming') ? (
-          <DocsProgrammingSidebar />
-        ): null}
+        <DocsNetworkingSidebar videos={videos} slug={slug} />
+        {slug && slug[0] === "programming" ? (
+          <DocsProgrammingSidebar data={programming as ProjectType[]} />
+        ) : null}
       </div>
     </ScrollArea>
   );

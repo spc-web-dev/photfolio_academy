@@ -1,3 +1,4 @@
+'use client'
 import { SearchIcon } from "lucide-react";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "../ui/dialog";
@@ -11,11 +12,25 @@ import {
   CommandSeparator,
 } from "@/components/ui/command";
 import { DialogTitle } from "@radix-ui/react-dialog";
-import { NetworkingData, ProgrammingData } from "@/lib/data";
+import { ProgrammingData } from "@/lib/data";
 import { FcDocument, FcHome } from "react-icons/fc";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { getSkillsByType } from "@/lib/action/action-skills";
+import {  SkillType } from "@/lib/type";
+
 
 function SearchButton() {
+  const [networking, setNetworking] = useState<SkillType[]>([])
+  useEffect(()=>{
+    const handle=async ()=>{
+      const { data, success }= await getSkillsByType('networking')
+      if(success && data){
+        setNetworking(data as SkillType[])
+      }
+    }
+    handle()
+  },[])
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -64,10 +79,10 @@ function SearchButton() {
               </CommandGroup>
               <CommandSeparator />
               <CommandGroup heading="Networking">
-                {NetworkingData.map((net) => (
+                {networking.map((net) => (
                   <CommandItem key={net.id} asChild className=" cursor-pointer">
-                    <Link href={net.link}>
-                      {net.icon}
+                    <Link href={`/docs/networking/${net.id}`}>
+                      {/* {net.icon} */}
                       <span className="capitalize">{net.title}</span>
                     </Link>
                   </CommandItem>

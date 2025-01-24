@@ -16,9 +16,10 @@ type Props = {
   index: number;
   projectsRef: RefObject<HTMLDivElement[] | unknown[]>;
   data: ProjectType;
+  id: string;
 };
 
-function ProjectCard({ index, projectsRef, data }: Props) {
+function ProjectCard({ index, projectsRef, data, id }: Props) {
   return (
     <motion.div
       initial={{
@@ -38,7 +39,7 @@ function ProjectCard({ index, projectsRef, data }: Props) {
       }}
       viewport={{ once: false }}
     >
-      <div className="w-full h-full" id={"project" + index} 
+      <div className="w-full h-full" id={'id'+id} 
       ref={(el) => {
             projectsRef.current[index] = el;
       }}>
