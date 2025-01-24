@@ -11,3 +11,11 @@
 > [React Icons](https://react-icons.github.io/react-icons)<br>
 > [Framer Motion](motion.dev)<br>
 > [Cloudinary](https://next.cloudinary.dev) and more.<br>
+
+#### To run this project you can dowload or clone it from this repo.
+
+
+- run the command: [npm] [run] [dev]
+- create a [.env.local] file in the root folder, copy my [.example.env.local] file  and add your envirement.
+
+- to the project run the command: [npm] [run] [dev]
