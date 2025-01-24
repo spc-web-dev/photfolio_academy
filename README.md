@@ -15,6 +15,6 @@
 #### To run this project you can dowload or clone it from this repo.
 
 
-- Run the command: `npm run dev`
+- Run the command: `npm install`
 - Create a `.env.local` file in the root folder, copy the `.example.env.local` file, and add your environment variables.
 - To start the project, run the command: `npm run dev`
