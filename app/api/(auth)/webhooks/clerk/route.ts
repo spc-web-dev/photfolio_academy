@@ -1,6 +1,6 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
-import { WebhookEvent } from '@clerk/nextjs/server'
+import { clerkClient, WebhookEvent } from '@clerk/nextjs/server'
 import { db } from '@/drizzle/db'
 import { usersTable } from '@/drizzle/schema'
 
@@ -53,9 +53,11 @@ export async function POST(req: Request) {
 
   if(eventType === 'user.created'){
     const { email_addresses, image_url, username } = evt.data
+    console.log(username)
 
     const email = email_addresses[0]?.email_address || '';
-    await db.insert(usersTable).values({ username: username as string, email, password: '123456', image_url, role: 'viewer' })
+    await db.insert(usersTable).values({ username: username || '', email, password: '123456', image_url: image_url || '', role: 'viewer' })
+
   }
 
   return new Response('Webhook received', { status: 200 })
