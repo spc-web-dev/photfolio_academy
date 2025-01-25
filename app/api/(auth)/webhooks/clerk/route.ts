@@ -1,6 +1,6 @@
 import { Webhook } from 'svix'
 import { headers } from 'next/headers'
-import { clerkClient, WebhookEvent } from '@clerk/nextjs/server'
+import {  WebhookEvent } from '@clerk/nextjs/server'
 import { db } from '@/drizzle/db'
 import { usersTable } from '@/drizzle/schema'
 
