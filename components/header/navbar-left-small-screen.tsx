@@ -10,13 +10,28 @@ import {
 } from "../ui/sheet";
 import { Button } from "../ui/button";
 import { Label } from "../ui/label";
-import { NetworkingData, ProgrammingData } from "@/lib/data";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { useUser } from "@clerk/nextjs";
+import { getSkillsByType } from "@/lib/action/action-skills";
+import { SkillType } from "@/lib/type";
 
 
 function NavbarLeftSmallScreen() {
     const pathname = usePathname()
+    const [networking,setNetworking] = useState<SkillType[]>([])
+    const { user } = useUser()
+
+    useEffect(()=>{
+      async function handle(){
+        const nets = await getSkillsByType('networking')
+        if(nets.data && nets.success){
+          setNetworking(nets.data as SkillType[])
+        }
+      }
+      handle()
+    },[])
   return (
     <div className="md:hidden inline-block">
       <Sheet>
@@ -45,26 +60,24 @@ function NavbarLeftSmallScreen() {
                     Documents
                   </Label>
                 </Link>
-                <Link className={`${pathname === '/dashboard' ? ' text-blue-500': ''}`} href={'/dashboard'}>
+                {(user && user.username === process.env.NEXT_PUBLIC_SECRET_USER) && <Link className={`${pathname === '/dashboard' ? ' text-blue-500': ''}`} href={'/dashboard'}>
                   <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
                     Dashboard
                   </Label>
-                </Link>
+                </Link>}
             </div>
             <div className="flex flex-col gap-4">
               <SheetDescription>Programming</SheetDescription>
-              {ProgrammingData.map((pro) => (
-                <Link className={`${pathname === pro.link ? ' text-blue-500': ''}`} key={pro.id} href={pro.link}>
+              <Link className={`${pathname === `/docs/programming/web_dev` ? ' text-blue-500': ''}`} href={'/docs/programming/web_dev'}>
                   <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
-                    {pro.title}
+                    Web Development
                   </Label>
                 </Link>
-              ))}
             </div>
             <div className="flex flex-col gap-4">
               <SheetDescription className="">Networking</SheetDescription>
-              {NetworkingData.map((net) => (
-                <Link className={`${pathname === net.link ? ' text-blue-500': ''}`} key={net.id} href={net.link}>
+              {networking && networking.map((net) => (
+                <Link className={`${pathname === `/docs/networking/${net.id}` ? ' text-blue-500': ''}`} key={net.id} href={`/docs/networking/${net.id}`}>
                   <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
                     {net.title}
                   </Label>
