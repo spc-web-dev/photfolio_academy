@@ -48,7 +48,7 @@ export async function POST(req: Request) {
     if(eventType === 'user.created'){
       const { email_addresses, image_url, username } = evt.data
       const email = email_addresses[0]?.email_address || '';
-      await db.insert(usersTable).values({ username: username || '', email, password: '123456', image_url: image_url || '', role: 'viewer' })
+      await db.insert(usersTable).values({ username: username || '', email, password: username+'123', image_url: image_url || '', role: 'viewer' })
     }
   } catch (err) {
     console.error('Error: Could not verify webhook:', err)
