@@ -43,6 +43,13 @@
       "when": 1737780246996,
       "tag": "0005_dazzling_dreaming_celestial",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1737860223227,
+      "tag": "0006_stiff_deathstrike",
+      "breakpoints": true
     }
   ]
 }

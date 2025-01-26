@@ -8,7 +8,6 @@ import { useUser } from "@clerk/nextjs";
 function NavbarLeft() {
   const pathname = usePathname();
   const { user } = useUser();
-  console.log(user);
   return (
     <div className="flex items-center gap-4 relative">
       <NavbarLeftSmallScreen />

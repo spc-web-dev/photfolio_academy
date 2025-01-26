@@ -3,6 +3,8 @@ import { headers } from 'next/headers'
 import {  WebhookEvent } from '@clerk/nextjs/server'
 import { db } from '@/drizzle/db'
 import { usersTable } from '@/drizzle/schema'
+import { eq } from 'drizzle-orm'
+
 
 
 
@@ -46,11 +48,16 @@ export async function POST(req: Request) {
     const eventType = evt.type
 
     if(eventType === 'user.created'){
-      const { email_addresses, image_url, username, first_name, last_name } = evt.data
+      const { email_addresses, image_url, username, first_name, last_name, id } = evt.data
       const email = email_addresses[0]?.email_address || '';
       const user_name = username || `${first_name} ${last_name}`
       const pass = `${first_name}${last_name}@${Math.random()}`
-      await db.insert(usersTable).values({ username: user_name , email, password: pass, image_url: image_url || '', role: 'viewer' })
+      const checkUser = await db.select().from(usersTable).where(eq(usersTable.email,email))
+      if(checkUser.length > 0){
+        await db.update(usersTable).set({...checkUser[0], auth_id: id})
+      } else {
+        await db.insert(usersTable).values({auth_id:id, username: user_name , email, password: pass, image_url: image_url || '', role: 'viewer' })
+      }
     }
   } catch (err) {
     console.error('Error: Could not verify webhook:', err)

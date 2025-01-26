@@ -60,7 +60,7 @@ function NavbarLeftSmallScreen() {
                     Documents
                   </Label>
                 </Link>
-                {(user && user.username === process.env.NEXT_PUBLIC_SECRET_USER) && <Link className={`${pathname === '/dashboard' ? ' text-blue-500': ''}`} href={'/dashboard'}>
+                {(user && user.primaryEmailAddress?.emailAddress === process.env.NEXT_PUBLIC_SECRET_USER) && <Link className={`${pathname === '/dashboard' ? ' text-blue-500': ''}`} href={'/dashboard'}>
                   <Label className=" font-normal cursor-pointer capitalize hover:text-blue-400">
                     Dashboard
                   </Label>
